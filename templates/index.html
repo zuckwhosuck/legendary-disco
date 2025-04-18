@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>DeepDetect - Detect Deepfakes Instantly</title>
+  <meta content="Upload images to detect deepfakes using advanced AI technology" name="description">
+  <meta content="deepfake, detection, AI, image analysis" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="static\img\favicon.ico">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link rel="stylesheet" href="static\css\style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="ball"></div> 
+  <!-- ======= Header ======= -->
+  <header id="header" >
+    <div class="container">
+      <nav class="navbar navbar-expand-lg" id="mainNav">
+        <div class="navbar-container">
+          <div class="logo">
+            <h1><a href="/">DeepDetect</a></h1>
+          </div>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-list">
+              <li class="navbar-item">
+                <a class="navbar-link active" href="/about">About Us</a>
+              </li>
+              <li class="navbar-item">
+                <a class="navbar-link" id="toggleButton2">Upload</a>
+              </li>
+              <li class="navbar-item">
+                <a class="navbar-link" href="#features">Features</a>
+              </li>
+              <li class="navbar-item">
+                <a class="navbar-link" href="#anton">Anton</a>
+              </li>
+              <li class="navbar-item">
+                <a class="navbar-link" href="/about#contact">Contact</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header><!-- End Header -->
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1">
+          <div>
+            <h1 class="tracking-in-expand">Welcome To <span class="deepdetect">DEEPDETECT</span></h1>
+            <button  id="toggleButton" class="btn-get-started shadow-inset-center">Start Analyzing</button>
+          </div>
+        </div>
+        <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
+          <img src="static\img\Deep-fake-detection-AI.webp" alt="Hero Image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+  <!-- ======= Upload Section ======= -->
+  <div id="uploadModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <!-- Your Upload Section -->
+        <div id="contentDiv" class="upload-area">
+            <h3>Upload Image</h3>
+            <div class="upload-box" id="upload-box">
+                <i class="bi bi-cloud-arrow-up"></i>
+                <p>Drag and drop image here or click to browse</p>
+                <input type="file" id="file-input" style="display: none;" accept="image/*">
+            </div>
+
+            <div class="progress-wrapper" style="display: none;">
+                <p>Analyzing image...</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="result-area" id="result-area">
+                <h4>Analysis Results</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                      <img src="" id="result-img" class="result-img" style="display:none;">
+                      <div id="loading-indicator" style="display:block;">Loading...</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Detection Score</h5>
+                                <div class="detection-score">
+                                    <h2 id="score-value">NaN%</h2>
+                                    <p id="score-label">Likely deepfake</p>
+                                </div>
+                                <div class="detection-details mt-4">
+                                    <h6>Details:</h6>
+                                    <ul id="detection-details-list">
+                                        <li>No data available yet</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- End Upload Section -->
+
+
+  <main id="main">
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Features</h2>
+          <p>Our deepfake detection technology offers multiple advantages</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="bi bi-shield-check"></i></div>
+              <h4 class="title"><a href="">High Accuracy</a></h4>
+              <p class="description">Our AI model has been trained on thousands of images to achieve over 98% accuracy in deepfake detection.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="bi bi-speedometer2"></i></div>
+              <h4 class="title"><a href="">Fast Processing</a></h4>
+              <p class="description">Get results in seconds with our optimized algorithms that analyze images quickly.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="bi bi-eyeglasses"></i></div>
+              <h4 class="title"><a href="">Detailed Analysis</a></h4>
+              <p class="description">Receive comprehensive reports that highlight specific manipulated areas in the image.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon"><i class="bi bi-lock"></i></div>
+              <h4 class="title"><a href="">Privacy Focused</a></h4>
+              <p class="description">We respect your privacy and delete all uploaded images after analysis is complete.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Anton Section ======= -->
+    <section id="anton" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Anton : The Beast</h2>
+          <p>We have conducted comprehensive training and fine-tuned various hyperparameters, including testing different DenseNet121 architectures, adjusting the number of convolutional layers, experimenting with pretrained weights, applying diverse data augmentations, and optimizing dropout rates and regularization techniques. Ultimately, the following configuration yielded the best performance.</p>
+
+        </div>
+        <div class="d-flex justify-content-between">
+          <ul>
+            <li><i class="bi bi-check2-circle"></i> Input Size: 256 x 256</li>
+            <li><i class="bi bi-check2-circle"></i> Batch Size: 63</li>
+            <li><i class="bi bi-check2-circle"></i> Optimizer: Adam</li>
+            <li><i class="bi bi-check2-circle"></i> Learning Rate: 0.0001</li>
+            <li><i class="bi bi-check2-circle"></i> Dropout Rate: 0.3</li>
+            <li><i class="bi bi-check2-circle"></i> Regularization: L2 with 0.001 rate</li>
+          </ul>
+          <dotlottie-player src="https://lottie.host/7178c4e8-a1cf-4880-9ae5-0708bff5c044/PJXxxENazp.lottie" background="transparent" speed="1" style="width: 300px; height: 300px; margin-right: 100px;
+          position: relative;
+          top: -25px;" data-aos="fade-left" loop autoplay></dotlottie-player>
+        </div>
+
+        <br>
+
+        <div class="col-lg-10 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="flip-up">
+          <img src="static\img\image.png" alt="Hero Image" class="img-fluid">
+        </div>
+
+        <br>
+
+        <div>
+          <ul>
+            <li><i class="bi bi-check2-circle"></i> Accuracy: 98.68%</li>
+            <li><i class="bi bi-check2-circle"></i> Precision: 98.42%</li>
+            <li><i class="bi bi-check2-circle"></i> Recall: 98.94%</li>
+          </ul>
+        </div>
+
+
+      </div>
+    </section><!-- End FAQ Section -->
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3 class="deepdetect"><a href="/">DEEPDETECT</a></h3>
+            <p>
+              Silicon Valley, <br>
+              3156 university avenue,<br> 
+              palo alto, ca<br>
+              United States <br><br>
+              <strong>Phone:</strong> +1 650-543-4800<br>
+              <strong>Fax:</strong> +1 650-543-4801<br>
+              <strong>Email:</strong> info@deepdetect.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/about">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#hero">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#hero">Terms of service</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#hero">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#hero">Image Analysis</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#hero">Deepfake Detection</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#hero">Media Verification</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#hero">AI Research</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#hero">Security Services</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>Follow us on social media for updates and news about deepfake detection</p>
+            <div class="social-links d-flex">
+              <a href="https://x.com/k7ishn" class="twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=61559732801269" class="facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+              <a href="https://www.instagram.com/k7ishn/" class="instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/harsh-patel-6005b3275/" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        <strong><span>DeepDetect &copy;2025</span></strong>. All Right Reserved <br>
+        Designed by <a href="https://www.linkedin.com/in/k7ishn">Harsh Patel</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+  
+  <!-- Vendor JS Files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Main JS File -->
+  <script src="static\js\main.js"></script>
+  <script src="static\js\shrink.js"></script>
+  <script src="static\js\ball.js"></script>
+  <script src="static\js\upload.js"></script>
+  <script src="https://kit.fontawesome.com/f6d7c9e08d.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'static/js/particlesjs-config.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+  </script>
+</body>
+</html>

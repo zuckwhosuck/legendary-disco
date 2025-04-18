@@ -1,0 +1,662 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #585a61;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: -1;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 3px solid #5777ba;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@media(max-width: 991px){
+  .ball{
+    display: none;
+  }
+}
+.accordion-item, .accordion-item > button{
+  background: transparent !important;
+}
+.accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed{
+  background: transparent !important;
+}
+a {
+  color: #5777ba;
+  text-decoration: none;
+  position: relative;
+}
+
+a:hover {
+  color: #7b94c9;
+  text-decoration: none;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #5777ba;
+  transition: width 0.3s ease-in-out;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+.deepdetect{
+  color: #5777ba; 
+  font-weight: 700; 
+  letter-spacing: 2px;
+  font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  transition: all 0.5s;
+  z-index: 997;
+  transition: all 0.5s;
+  padding: 15px 0;
+  background: transparent;
+}
+.logo{
+  display: flex;
+  align-items: center;
+}
+
+#header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  padding: 6px 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#header .logo h1 a, #header .logo h1 a:hover {
+  color: #5777ba;
+  text-decoration: none;
+}
+
+#header .logo img {
+  padding: 6px 0;
+  margin: 0;
+  max-height: 40px;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+.navbar {
+  width: 100%;
+}
+
+.navbar-container {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.navbar-toggler {
+ 
+  font-size: 24px;
+  color: #5777ba;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.navbar-collapse{
+  flex-grow: 0;
+}
+.navbar-menu {
+  display: block;
+  width: auto;
+}
+
+.navbar-list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  position: relative;
+  white-space: nowrap;
+  padding: 8px 0 8px 25px;
+}
+
+.navbar-link {
+  display: block;
+  position: relative;
+  color: #47536e;
+  padding: 0;
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbar-link {
+    transition: none;
+  }
+}
+.navbar-link:hover, .navbar-link:focus {
+  color: var(--bs-navbar-link-hover-color);
+}
+.navbar-link.disabled {
+  color: var(--bs-navbar-link-disabled-color);
+  pointer-events: none;
+  cursor: default;
+}
+#mainNav.navbar-shrink {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+#mainNav.navbar-shrink .navbar-brand {
+  font-size: 1.25em;
+}
+#mainNav.navbar-shrink .navbar-brand svg,
+#mainNav.navbar-shrink .navbar-brand img {
+  height: 1.5rem;
+}
+
+.navbar-link:hover, .navbar-link.active {
+  color: #5777ba;
+  text-decoration: none;
+}
+
+@media (max-width: 991px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    display: none;
+    width: 100%;
+    margin-top: 15px;
+    background: transparent;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .navbar-menu.active {
+    display: block;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .navbar-item:last-child {
+    border-bottom: none;
+  }
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 100px 0;
+  margin-bottom: -75px;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  right: -100%;
+  top: 20%;
+  width: 250%;
+  height: 200%;
+  z-index: -1;
+  background-color: #e8ecf5;
+  transform: skewY(135deg);
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 47px;
+  font-weight: 500;
+  line-height: 56px;
+  color: #5777ba;
+  font-family: "Poppins", sans-serif;
+}
+
+#hero h2 {
+  color: #515f7d;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+#hero .hero-img {
+  text-align: center;
+}
+
+#hero .hero-img img {
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  #hero {
+    text-align: center;
+    padding-top: 80px;
+  }
+  #hero .hero-img img {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    text-align: center;
+  }
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  #hero .hero-img img {
+    width: 100%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Upload Section
+--------------------------------------------------------------*/
+.hidden {
+        display: none;
+    }
+    
+.upload-area {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.upload-area h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #5777ba;
+  margin-bottom: 20px;
+}
+
+.upload-box {
+  border: 2px dashed #d3d7da;
+  border-radius: 5px;
+  padding: 100px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+  border-color: #5777ba;
+}
+
+.upload-box i {
+  font-size: 50px;
+  color: #5777ba;
+  margin-bottom: 15px;
+}
+
+.upload-box p {
+  margin-bottom: 0;
+}
+
+.result-area {
+  display: none;
+  margin-top: 30px;
+}
+
+.result-img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+}
+#result-img{
+  max-height: 400px;
+}
+
+.progress-wrapper {
+  margin: 20px 0;
+}
+
+/*--------------------------------------------------------------
+# Features
+--------------------------------------------------------------*/
+.features .icon-box {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 29px 0 rgba(18, 66, 101, 0.08);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  z-index: 1;
+  height: 100%;
+}
+
+.features .icon-box .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.features .icon-box .title a {
+  color: #124265;
+  transition: 0.3s;
+}
+
+.features .icon-box .icon {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  font-size: 36px;
+  line-height: 1;
+  color: #5777ba;
+}
+
+.features .icon-box:hover {
+  transform: scale(1.08);
+}
+
+.features .icon-box:hover .title a {
+  color: #5777ba;
+}
+
+
+.contact{
+  padding-top: 40px;
+}
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: transparent;
+  padding: 0 0 30px 0;
+  color: #444444;
+  font-size: 14px;
+}
+
+#footer .footer-top {
+  padding: 60px 0 30px 0;
+  background: transparent !important;
+}
+
+#footer .footer-top .footer-info {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-info h3 {
+  font-size: 24px;
+  margin: 0 0 20px 0;
+  padding: 2px 0 2px 0;
+  line-height: 1;
+  font-weight: 700;
+  color: #5777ba;
+}
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+
+/* Button Styles */
+.btn-get-started {
+  background: #5777ba;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  padding: 10px 30px;
+  transition: 0.5s;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.btn-get-started:hover {
+  background: #eaeaea;
+  color: #5777ba;
+  text-decoration: none;
+}
+button.btn-get-started.scrollto {
+  background-color: white;
+  border-color: #5777ba;
+  color: #5777ba;
+  border-radius: 15px;
+  border: double;
+}
+button.btn-get-started.scrollto:hover {
+  background-color:  #5777ba;
+  color: white;
+}
+
+.small-icon{
+  color: #5777ba;
+}
+
+
+/* FAQ SECTION */
+.faq{
+  padding-top: 40px;
+}
+
+
+/* HOVER CSS */
+.social-links{
+  font-size: 30px;
+  column-gap: 7px;
+}
+.social-links a{
+  transition: all .2s ease-in-out; 
+}
+.social-links a:hover{
+  transform: scale(1.1);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.features .icon-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, .2), 0 4px 18px 0 rgba(0, 0, 0, .12);
+  
+  transition-duration: 0.3s;
+}
+
+[data-aos][data-aos][data-aos-delay="200"].aos-animate, body[data-aos-delay="200"] [data-aos].aos-animate {
+    transition-delay: 0ms;
+}
+[data-aos][data-aos][data-aos-duration="1000"], body[data-aos-duration="1000"] [data-aos] {
+  transition-duration: 0.3s;
+}
+[data-aos][data-aos][data-aos-delay="400"].aos-animate, body[data-aos-delay="400"] [data-aos].aos-animate {
+  transition-delay: 0ms;
+}
+[data-aos][data-aos][data-aos-delay="300"].aos-animate, body[data-aos-delay="300"] [data-aos].aos-animate {
+    transition-delay: 0ms;
+}
+
+/* Full-Screen Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:  rgba(125, 125, 125, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+}
+/* When Active */
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+}
+
+/* Modal Content */
+.modal-content {
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  width: 50%;
+  transition: 300ms;
+  opacity: 1;
+}
+.modal-content .upload-area{
+  margin-bottom: 0px;
+  background: #fff;
+}
+@media (max-width: 991px) {
+
+  .modal-content{
+    width: 70%;
+  }
+  .upload-box{
+    padding: 70px 20px;
+  }
+}
+@media (max-width: 768px) {
+
+  .modal-content{
+    width: 90%;
+  }
+  .upload-box{
+    padding: 40px 20px;
+  }
+}
+
+/* Close Button */
+.close {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  transition: 0.5s;
+}
+.close:hover{
+  color: #5777ba;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 600px;
+  height: 600px;
+}
+
+.image-wrapper img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-wrapper .hover {
+  opacity: 0;
+}
+
+.image-wrapper:hover .hover {
+  opacity: 1;
+}
+
+.image-wrapper:hover .default {
+  opacity: 0;
+}
+.tracking-in-expand{
+  -webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1.000) both}
+/* ----------------------------------------------
+ * Generated by Animista on 2025-4-3 16:49:9
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+ @-webkit-keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
+
+ .shadow-pop-br{-webkit-animation:shadow-pop-br .3s cubic-bezier(.47,0.000,.745,.715) both;animation:shadow-pop-br .3s cubic-bezier(.47,0.000,.745,.715) both}
+/* ----------------------------------------------
+ * Generated by Animista on 2025-4-3 17:4:10
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+ @-webkit-keyframes shadow-pop-br{0%{-webkit-box-shadow:0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575;box-shadow:0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575;-webkit-transform:translateX(0) translateY(0);transform:translateX(0) translateY(0)}100%{-webkit-box-shadow:1px 1px #385575,2px 2px #385575,3px 3px #385575,4px 4px #385575,5px 5px #385575,6px 6px #385575,7px 7px #385575,8px 8px #385575;box-shadow:1px 1px #385575,2px 2px #385575,3px 3px #385575,4px 4px #385575,5px 5px #385575,6px 6px #385575,7px 7px #385575,8px 8px #385575;-webkit-transform:translateX(-8px) translateY(-8px);transform:translateX(-8px) translateY(-8px)}}@keyframes shadow-pop-br{0%{-webkit-box-shadow:0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575;box-shadow:0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575,0 0 #385575;-webkit-transform:translateX(0) translateY(0);transform:translateX(0) translateY(0)}100%{-webkit-box-shadow:1px 1px #385575,2px 2px #385575,3px 3px #385575,4px 4px #385575,5px 5px #385575,6px 6px #385575,7px 7px #385575,8px 8px #385575;box-shadow:1px 1px #385575,2px 2px #385575,3px 3px #385575,4px 4px #385575,5px 5px #385575,6px 6px #385575,7px 7px #385575,8px 8px #385575;-webkit-transform:translateX(-8px) translateY(-8px);transform:translateX(-8px) translateY(-8px)}}
+
+ .shadow-inset-center{-webkit-animation:shadow-inset-center .4s cubic-bezier(.25,.46,.45,.94) both;animation:shadow-inset-center .4s cubic-bezier(.25,.46,.45,.94) both}
+
+ /* ----------------------------------------------
+ * Generated by Animista on 2025-4-3 17:14:34
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+@-webkit-keyframes shadow-inset-center{0%{-webkit-box-shadow:inset 0 0 0 0 transparent;box-shadow:inset 0 0 0 0 transparent}100%{-webkit-box-shadow:inset 0 0 14px 0 rgba(0,0,0,.5);box-shadow:inset 0 0 14px 0 rgba(0,0,0,.5)}}@keyframes shadow-inset-center{0%{-webkit-box-shadow:inset 0 0 0 0 transparent;box-shadow:inset 0 0 0 0 transparent}100%{-webkit-box-shadow:inset 0 0 14px 0 rgba(0,0,0,.5);box-shadow:inset 0 0 14px 0 rgba(0,0,0,.5)}}

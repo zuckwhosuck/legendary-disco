@@ -1,0 +1,26 @@
+{
+  "_name_or_path": "prithivMLmods/Deepfake-Real-Class-Siglip2",
+  "architectures": [
+    "SiglipForImageClassification"
+  ],
+  "id2label": {
+    "0": "Fake",
+    "1": "Real"
+  },
+  "initializer_factor": 1.0,
+  "label2id": {
+    "Fake": 0,
+    "Real": 1
+  },
+  "model_type": "siglip",
+  "problem_type": "single_label_classification",
+  "text_config": {
+    "model_type": "siglip_text_model",
+    "vocab_size": 256000
+  },
+  "torch_dtype": "float32",
+  "transformers_version": "4.48.3",
+  "vision_config": {
+    "model_type": "siglip_vision_model"
+  }
+}
