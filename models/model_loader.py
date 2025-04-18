@@ -12,8 +12,8 @@ MODEL_PATH = os.path.join(MODEL_DIR, "deepfake_detector.safetensors")
 CONFIG_PATH = os.path.join(MODEL_DIR, "config.json")
 
 # GitHub release direct download URLs
-MODEL_URL = "https://github.com/zuckwhosuck/DeepDetectPrevious/releases/download/v1.0/deepfake_detector.safetensors"
-CONFIG_URL = "https://github.com/zuckwhosuck/DeepDetectPrevious/releases/download/v1.0/config.json"
+MODEL_URL = "https://github.com/zuckwhosuck/legendary-disco/releases/download/v1.0/deepfake_detector.safetensors"
+CONFIG_URL = "https://github.com/zuckwhosuck/legendary-disco/releases/download/v1.0/config.json"
 
 def download_file(url, path):
     """Download a file from a URL to a local path."""
